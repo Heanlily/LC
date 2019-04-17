@@ -1,0 +1,29 @@
+def f(grid):
+    m, n = len(grid), len(grid[0])
+    ans=[]
+
+    def dfs(i, j):
+        if 0 <= i < m and 0 <= j < n and grid[i][j]:
+            grid[i][j] = 0
+            index.append([i, j])
+            dire=[-1,0,1,0,-1]
+            for x in range(4):
+                dfs(i+dire[x],j+dire[x+1])
+        return index
+
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j]:
+                index=[]
+                ans.append(dfs(i,j))
+    mmin=float("inf")
+    for i in range(len(ans[0])):
+        for j in range(len(ans[1])):
+            diff=abs(ans[0][i][0]-ans[1][j][0])+abs(ans[0][i][1]-ans[1][j][1])
+            mmin=min(mmin,diff)
+    return mmin-1
+
+grid=[[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
+print(f(grid))
+
+
