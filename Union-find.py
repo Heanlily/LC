@@ -1,3 +1,10 @@
+#Amazon sells books, every book has books which are strongly associated with it. 
+Given ListA and ListB,indicates that ListA [i] is associated with ListB [i] which represents the book and associated books. 
+Output the largest set associated with each other(output in any sort). You can assume that there is only one of the largest set.
+Example
+Given ListA = ["abc","abc","abc"], ListB = ["bcd","acd","def"], return["abc","acd","bcd","dfe"].
+#
+
 import collections
 def f(lis):
     temp=[]
